@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebGL Particles</title>
+    <style>
+        body {
+            background: #111;
+            margin: 0;
+            padding: 0;
+        }
+
+        .gl-cvs {
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 10px;
+            border: 1px solid white;
+        }
+
+        .control {
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #000;
+            background: cornflowerblue;
+        }
+
+        .control label {
+            display: block;
+        }
+        label span{
+            display: inline-block;
+            min-width: 40px;
+        }
+        label{
+            margin: 5px  10px;;
+        }
+        input[type="number"] {
+            display: inline-block;
+            margin: 5px;
+            width: 60px;;
+            font-family: sans-serif;
+            text-align: center;
+            font-size: 12px;
+            height: 18px;
+            line-height: 18px;
+            -webkit-appearance: none;
+            box-shadow: none;
+            border-radius: 5px;
+            border: none;
+        }
+        .fold{
+            width: 100%;
+            background: white;
+            font-size: 18px;
+            height: 18px;
+            line-height: 18px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .tool{
+            transition: all 0.7s ease-in-out;
+            max-height: 320px;
+            overflow: hidden;
+        }
+        .tool.hide{
+            max-height:0;
+        }
+        .fps{
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+<canvas class="gl-cvs"></canvas>
+<div class="control">
+    <div class="tool">
+        <div class="fps"></div>
+        <label>
+            <span>Particle Count:</span><br>
+            <input name="count" type="range" value="7" min="4" max="12"><span class="count-value"></span></label>
+        <label>Velocity Range</label>
+        <label>
+            <span>left</span>
+            <input type="number" data-bind name="vxmin" value="64" max="0" min="256"></label>
+        <label>
+            <span>right</span>
+            <input type="number" data-bind name="vxmax" value="64" max="256" min="0"></label>
+        <label>
+            <span>up</span>
+            <input type="number" data-bind name="vymax" value="64" max="0" min="256"></label>
+        <label>
+            <span>down</span>
+            <input type="number" data-bind name="vymin" value="0" max="0" min="256"></label>
+        <label>
+            <span>Disappear time:</span><br>
+            <input name="animationTime" data-bind type="range" min="3" max="10" value="4">
+            <span data-display="animationTime"></span>
+        </label>
+
+    </div>
+    <div class="fold">+</div>
+</div>
+
+<script src="../lib/flip_gl.js"></script>
+<script src="../build/index.js"></script>
+
+</body>
+</html>
