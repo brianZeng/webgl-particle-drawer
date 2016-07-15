@@ -10,7 +10,6 @@ Flip(function () {
   drawer.start();
   drawer.watchElement(canvas);
   bindController(drawer);
-  
 });
 function bindController(drawer:ParticleDrawer) {
   let countValueEle=Flip.$('.count-value');
