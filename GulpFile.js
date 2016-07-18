@@ -5,6 +5,7 @@ let rename=require('gulp-rename');
 gulp.task('js:index',buildScript({
   src:'src/index.js',
   dest:'build/index.js',
+  BABEL_ENV:'publish',
   watch:true
 }));
 
